@@ -1,4 +1,9 @@
 #include <stdio.h>
+/**
+ * main - Entry point
+ * Printf command
+ * 0 -> (Success)
+ */
 
 int main(void)
 {
