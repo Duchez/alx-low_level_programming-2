@@ -1,39 +1,38 @@
 #include <stdio.h>
 
-/**
-* main - create 2 pairs of numbers that do not repeat
-* Return: 0
-*/
 int main(void)
 {
 	int j = 0;
-
+	int startI = 0;
 	while (j <= 99)
 	{
-		int i = j;
-
+		int i = startI;
 		while (i <= 99)
 		{
-			if (i != j)
+			if (i == j){}
+			else
 			{
 				int toPrint;
 
-				if (j >= 0 && j <= 9)
+				if (0 <= j && j <= 9)
 					toPrint = 48;
 				else
 					toPrint = j / 10 + 48;
 
 				putchar(toPrint);
 				putchar(j % 10 + 48);
-				putchar(' ');
-				if (i >= 0 && i <= 9)
+				purchar(' ');
+
+				if (0 <= i && i <= 9)
 					toPrint = 48;
 				else
 					toPrint = i / 10 + 48;
 
 				putchar(toPrint);
 				putchar(i % 10 + 48);
-				if (j * 100 + i != 9899)
+
+				if (j == 98 && i == 99){}
+				else
 				{
 					putchar(',');
 					putchar(' ');
@@ -42,6 +41,7 @@ int main(void)
 			i++;
 		}
 		j++;
+		startI++;
 	}
 	putchar('\n');
 	return (1);
