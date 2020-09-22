@@ -1,5 +1,4 @@
-#include <stdio.h>
-
+#include "holberton.h"
 /**
  *powB - raises the number base to power power
  *@base : the base
@@ -53,7 +52,7 @@ void putnchar(int num)
 	int length = numLength(num), j = length - 1, k, tmp2, digit1;
 
 	if (num == 0)
-		putchar(48);
+		_putchar(48);
 	else
 	{
 
@@ -61,22 +60,22 @@ void putnchar(int num)
 		{
 			if (num % powB(10, j) == 0 && j != 0)
 			{
-				putchar(48 + num / powB(10, j));
+				_putchar(48 + num / powB(10, j));
 				for (k = j; k > 0 ; k--)
 				{
-					putchar(48);
+					_putchar(48);
 				}
 				j = -1;
 			}
 			else
 			{
 				digit1 = num / powB(10, j);
-				putchar(digit1 + 48);
+				_putchar(digit1 + 48);
 				tmp2 = num;
 				num -= powB(10, j) * digit1;
 				if (numLength(tmp2) - numLength(num) == 2)
 				{
-					putchar(48);
+					_putchar(48);
 					j--;
 				}
 				j--;
@@ -103,27 +102,17 @@ void print_times_table(int n)
 				prod = i * j;
 				putnchar(prod);
 				if (j != n)
-					putchar(',');
-
-				for (m = 0; m < 4 - numLength(i * (j + 1)); m++)
 				{
-					putchar(' ');
+					_putchar(',');
+
+					for (m = 0; m < 4 - numLength(i * (j + 1)); m++)
+					{
+						_putchar(' ');
+					}
 				}
 
 			}
-			putchar('\n');
+			_putchar('\n');
 		}
 	}
 }
-/*
- *   void main(void)
- *   {
- *   print_times_table(3);
- *  putchar('\n');
- * print_times_table(5);
- * putchar('\n');
- * print_times_table(98);
- *   putchar('\n');
- *  print_times_table(12);
- * }
- */
