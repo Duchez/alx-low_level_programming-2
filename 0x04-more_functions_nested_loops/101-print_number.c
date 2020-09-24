@@ -39,7 +39,7 @@ int numLength(int num)
 }
 
 /**
- *putnchar - Print a number of any any digit
+ *printnchar - Print a number of any digit
  *@num : takes an input number
  *
  *
@@ -49,6 +49,11 @@ void printnchar(int num)
 
 	int length = numLength(num), j = length - 1, k, digit1, tmp2;
 
+	if (num < 0)
+	{
+		num *= -1;
+		_putchar('-');
+	}
 	if (num == 0)
 		_putchar(48);
 	else
@@ -91,11 +96,6 @@ void printnchar(int num)
 void print_number(int n)
 {
 
-	if (n < 0)
-	{
-		_putchar('-');
-		printnchar(-1 * n);
-	} else
-		printnchar(n);
+	printnchar(n);
 }
 
