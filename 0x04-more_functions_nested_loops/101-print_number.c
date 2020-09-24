@@ -6,7 +6,7 @@
  *@power : the power
  *Return: return the answer
  */
-int powB(int base, int power)
+int powB(unsigned int base, int power)
 {
 	int i, prod = 1;
 
@@ -22,7 +22,7 @@ int powB(int base, int power)
  *@num : operand number
  *Return: number of digits
  */
-int numLength(int num)
+int numLength(unsigned int num)
 {
 	int length = 0;
 
@@ -40,20 +40,22 @@ int numLength(int num)
 
 /**
  *printnchar - Print a number of any digit
- *@num : takes an input number
+ *@n : takes an input number
  *
  *
  */
-void printnchar(int num)
+void printnchar(int n)
 {
+	int length, j, k, digit1, tmp2;
+	unsigned int num;
 
-	int length = numLength(num), j = length - 1, k, digit1, tmp2;
-
-	if (num < 0)
+	if (n < 0)
 	{
-		num *= -1;
+		n *= -1;
 		_putchar('-');
 	}
+	num = n;
+	length = numLength(num), j = length - 1, k, digit1, tmp2;
 	if (num == 0)
 		_putchar(48);
 	else
