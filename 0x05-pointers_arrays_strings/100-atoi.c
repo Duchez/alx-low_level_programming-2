@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
  *mapint - maps a character to its integer form
  *@a: character to be mapped
@@ -28,7 +29,7 @@ int isDigit(char i)
  */
 int _atoi(char *s)
 {
-	signed long num = 0, sign = 1, started = 0;
+	int num = 0, sign = 1, started = 0;
 
 	while (*s)
 	{
