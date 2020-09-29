@@ -92,7 +92,7 @@ void putnchar(int num)
 /**
  *print_array-prints n elments of array a
  *@a:an integer array
- *n: number of elements to be printed
+ *@n: number of elements to be printed
  *
  */
 void print_array(int *a, int n)

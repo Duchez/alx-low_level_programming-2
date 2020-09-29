@@ -29,7 +29,7 @@ int isDigit(char i)
  */
 int _atoi(char *s)
 {
-	int num = 0, sign = 1, started = 0;/*1 for true and 0 for false*/
+	int num = 0, sign = 1, started = 0;
 
 	while (*s)
 	{
