@@ -34,9 +34,9 @@ char *_strncat(char *dest, char *src, int n)
 	int length;
 
 	if (n > _strlen(src) + _strlen(dest))
-		length =  _strlen(dest) + _strlen(src)
+		length =  _strlen(dest) + _strlen(src);
 	else
-		_strlen(dest) + n;
+		length = _strlen(dest) + n;
 
 	while (*src && n > 0)
 	{

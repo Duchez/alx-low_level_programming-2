@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include "holberton.h"
 
 /**
  *_strlen - returns the length of a string
- *@str: a string of length to be returned
+ *@str:a string of length to be returned
  *Return: returns the length of a string
  */
 int _strlen(char *str)
@@ -22,14 +23,15 @@ int _strlen(char *str)
 
 /**
  *_strcat - concatinates two strings
- *@dest: destination pointer
- *@src: pointer to a string
+ *@dest:destination pointer
+ *@src:pointer to a string
+ *@n:amount tot be concatenated
  *Return: concatinated string
  */
 char *_strcat(char *dest, char *src)
 {
 	char *cat = dest + _strlen(dest);
-	int length = _strlen(dest) + _strlen(src);
+	int length =  _strlen(dest) + _strlen(src);
 
 	while (*src)
 	{
@@ -38,9 +40,8 @@ char *_strcat(char *dest, char *src)
 		cat++;
 	}
 	*cat += '\0';
-	cat -= (length + 1);
+	cat -= (length);
+	*dest = *cat;
 
 	return (cat);
-
-
 }
