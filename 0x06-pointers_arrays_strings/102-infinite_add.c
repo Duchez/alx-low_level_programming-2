@@ -50,7 +50,7 @@ int returnRes(int sum, int plusOne)
 		res = (sum % 10) + 1;
 	else
 		res = sum % 10;
-	return res;
+	return (res);
 }
 
 /**
@@ -67,7 +67,7 @@ int returnPlusOne(int sum, int plusOne)
 		plusOne = 1;
 	else
 		plusOne = 0;
-	return plusOne;
+	return (plusOne);
 }
 
 /**
