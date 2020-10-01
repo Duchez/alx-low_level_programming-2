@@ -23,6 +23,7 @@ void rev_string(char *s)
 	int i = 0;
 	int size = _strlen(s);
 	char temp;
+
 	while (i < size)
 	{
 		temp = *(s + i);
@@ -34,15 +35,15 @@ void rev_string(char *s)
 }
 
 /**
-* returnRes - changes pretotal to digit to be added
-* @sum: pre-total
-* @plusOne: flag to add one to res
-* Return: returns digit to be placed into array
-*/
+ * returnRes - changes pretotal to digit to be added
+ * @sum: pre-total
+ * @plusOne: flag to add one to res
+ * Return: returns digit to be placed into array
+ */
 int returnRes(int sum, int plusOne)
 {
 	int res;
-	
+
 	if (sum == 9 && plusOne)
 		res = 0;
 	else if ((sum >= 10 && plusOne) || (sum < 9 && plusOne))
@@ -53,11 +54,11 @@ int returnRes(int sum, int plusOne)
 }
 
 /**
-* returnPlusOne - determines bool of plusOne
-* @sum: pre-total
-* @plusOne: flag to add one to res
-* Return: 1 if true, 0 if false
-*/
+ * returnPlusOne - determines bool of plusOne
+ * @sum: pre-total
+ * @plusOne: flag to add one to res
+ * Return: 1 if true, 0 if false
+ */
 int returnPlusOne(int sum, int plusOne)
 {
 	if (sum > 9)

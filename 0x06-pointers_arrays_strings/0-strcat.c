@@ -25,7 +25,6 @@ int _strlen(char *str)
  *_strcat - concatinates two strings
  *@dest:destination pointer
  *@src:pointer to a string
- *@n:amount tot be concatenated
  *Return: concatinated string
  */
 char *_strcat(char *dest, char *src)
