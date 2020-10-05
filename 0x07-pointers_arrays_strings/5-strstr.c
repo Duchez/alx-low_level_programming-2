@@ -4,6 +4,7 @@
 #define true 1
 #define false 0
 #define bool int
+
 /**
  * _strstr - locates a substring
  * @haystack: string to be searched
@@ -15,6 +16,9 @@ char *_strstr(char *haystack, char *needle)
 	char *start = haystack;
 	char *_needle = needle;
 	bool found =  false;
+
+	if (!*_needle)
+		return (haystack);
 
 	while (*haystack)
 	{
