@@ -43,7 +43,7 @@ char *str_concat(char *s1, char *s2)
 		_cat++;
 		s1++;
 	}
-	while(*s2)
+	while (*s2)
 	{
 		*_cat = *s2;
 		_cat++;
