@@ -13,6 +13,8 @@ char **strtow(char *str)
 	if (!str || !countWords(str) || !*str)
 		return (NULL);
 	ptr = malloc(sizeof(char *) * (countWords(str) + 1));
+	if (!ptr)
+		return (NULL);
 	for (i = 0; i < countWords(str); i++)
 	{
 		start = startIndex(str, j);
@@ -41,7 +43,7 @@ int isSpace(char c)
 }
 
 /**
- * startindex - returns first index of non-space char
+ * startIndex - returns first index of non-space char
  * @s: input string
  * @index: starting index
  * Return: index of first non-space char
