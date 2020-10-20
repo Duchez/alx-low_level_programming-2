@@ -1,85 +1,69 @@
 #include "dog.h"
+/**
+ * _strdup - returns a pointer to space in memory containing copy of string.
+ * @s: pointer to the string.
+ * Return: Pointer to a string stored in memory.
+ */
+char *_strdup(char *s)
+{
+	char *dup;
+	unsigned int i = 0;
+	unsigned int j = 0;
+
+	if (s == NULL)
+		return (NULL);
+/*Get the length of the string.*/
+	while (s[i] != '\0')
+		i += 1;
+/*+1 to include the terminating character in size.*/
+	i++;
+
+	dup = malloc(i * sizeof(*dup));
+	if (dup == NULL)
+		return (NULL);
+	while (j < i)
+	{
+		dup[j] = s[j];
+		j++;
+	}
+	return (dup);
+}
+
+
+
 
 /**
- * new_dog - creates a new dog
- * @name: name of dog
- * @age: age of dog
- * @owner: owner of dog
- * Return: malloced dog_t
+ *new_dog - create an instance of struct dog.
+ *@name:firt argument.
+ *@age:second argument.
+ *@owner: Third argument.
+ *Return: instance of struct.
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	char *n, *o;
-	dog_t *new_dog = malloc(sizeof(dog_t));
+	dog_t *newdog;
 
-	if (!new_dog || !name || !owner)
-		return (NULL);
-	n = malloc(_strlen(name) + 1);
-	if (!n)
+	newdog = malloc(sizeof(struct dog));
+
+	if (newdog == NULL)
 	{
-		free(new_dog);
 		return (NULL);
 	}
-	n = _strdup(name);
-	if (!n)
+	if (newdog == NULL)
+		return (NULL);
+/*Assign name element of new struct to the copy of name.*/
+	newdog->name = _strdup(name);
+	if (newdog->name == NULL)
 	{
-		free(new_dog);
 		return (NULL);
 	}
-	new_dog->name = n;
-	o = malloc(_strlen(owner) + 1);
-
-	if (!o)
+/*Assgin owner element of new struct to the copy of ownwer.*/
+	newdog->owner = _strdup(owner);
+	if (newdog->owner == NULL)
 	{
-		free(new_dog->name);
-		free(new_dog);
 		return (NULL);
 	}
-	o = _strdup(owner);
-	if (!o)
-	{
-		free(new_dog->name);
-		free(new_dog);
-		return (NULL);
-	}
-	new_dog->owner = o;
-	new_dog->age = age;
-	return (new_dog);
-}
+	newdog->age = age;
 
-/**
- * _strlen - returns the length of a string
- * @s: string s
- * Return: length of string
- */
-int _strlen(char *s)
-{
-	char *p = s;
-
-	while (*s)
-		s++;
-	return (s - p);
-}
-
-/**
- * _strdup - returns a pointer to a newly allocated space in memory,
- * which contains a copy of the string given as a parameter.
- * @str: string to be copied
- * Return: copied string
- */
-char *_strdup(char *str)
-{
-	int i, len;
-	char *copy;
-
-	if (!str)
-		return (NULL);
-	len = _strlen(str);
-	copy = malloc(sizeof(char) * len + 1);
-	if (!copy)
-		return (NULL);
-	for (i = 0; i < len; i++)
-		copy[i] = str[i];
-	copy[i] = 0;
-	return (copy);
+	return (newdog);
 }
