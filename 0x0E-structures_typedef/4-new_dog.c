@@ -46,21 +46,20 @@ dog_t *new_dog(char *name, float age, char *owner)
 	newdog = malloc(sizeof(struct dog));
 
 	if (newdog == NULL)
-	{
-		return (NULL);
-	}
-	if (newdog == NULL)
 		return (NULL);
 /*Assign name element of new struct to the copy of name.*/
 	newdog->name = _strdup(name);
 	if (newdog->name == NULL)
 	{
+		free(newdog);
 		return (NULL);
 	}
 /*Assgin owner element of new struct to the copy of ownwer.*/
 	newdog->owner = _strdup(owner);
 	if (newdog->owner == NULL)
 	{
+		free(newdog->name);
+		free(newdog);
 		return (NULL);
 	}
 	newdog->age = age;
