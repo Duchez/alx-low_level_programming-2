@@ -8,17 +8,23 @@
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	char *s = strdup(str);
-	int len  = strlen(str);
-	list_t *node = malloc(sizeof(list_t));
+	list_t *newNode;
+	char *newStr;
 
-	if (!node)
+	if (!str)
 		return (NULL);
-	node->str = s;
-	node->len = len;
-	node->next = *head;
-	*head = node;
+	newNode = malloc(sizeof(list_t));
+	if (!newNode)
+		return (NULL);
+	newStr = strdup(str);
+	if (!newStr)
+	{
+		free(newNode);
+		return (NULL);
+	}
+	newNode->len = strlen(newStr);
+	newNode->str = newStr;
+	newNode->next = *head;
+	*head = newNode;
 	return (*head);
-
-
 }
