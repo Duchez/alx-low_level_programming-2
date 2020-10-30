@@ -13,32 +13,38 @@ int _strlen(char *s)
 	return (s - p);
 }
 /**
- * add_node_end - adds a new node at the end a list_t list
- * @head: reference to head of linked list
- * @str: string to be added on new node
- * Return: address of new head;
+ * add_node_end - adds a new node at the end of a list_t list;
+ * @head: reference to head of list
+ * @str: string to be added to linked list
+ * Return: address of new node
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	char *s = strdup(str);
-	int len  = _strlen(str);
-	list_t *_head = *head;
-	list_t *node = malloc(sizeof(list_t));
+	list_t *newNode;
+	list_t *last = *head;
+	char *newStr;
 
-	if (!node)
+	if (!str)
 		return (NULL);
-
-	node->str = s;
-	node->len = len;
-	node->next = NULL;
-
-	if (!*head)
-		*head = node;
-	else
+	newNode = malloc(sizeof(list_t));
+	if (!newNode)
+		return (NULL);
+	newStr = strdup(str);
+	if (!newStr)
 	{
-		while (_head->next)
-			_head = _head->next;
-		_head->next = node;
+		free(newNode);
+		return (NULL);
 	}
-	return (node);
+	newNode->len = _strlen(newStr);
+	newNode->str = newStr;
+	newNode->next = NULL;
+	if (!*head)
+	{
+		*head = newNode;
+		return (newNode);
+	}
+	while (last->next)
+		last = last->next;
+	last->next = newNode;
+	return (last);
 }
